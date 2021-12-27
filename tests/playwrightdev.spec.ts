@@ -22,8 +22,8 @@ test('docs menu title', async ({ context }) => {
 
     let mainPageModel = new MainPage(page);
     let menu = await mainPageModel.Menu();
-    let docs = await menu.Api();
+    let api = await menu.Api();
 
-    await expect(docs.page).toHaveTitle('Playwright Library | Playwright')
+    await expect(api.page).toHaveTitle('Playwright Library | Playwright')
     
   });

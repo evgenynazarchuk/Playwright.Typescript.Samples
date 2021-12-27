@@ -18,11 +18,11 @@ export class Menu extends ElementModel {
         return new ApiPage(page);
     }
 
-    async Docs() {
+    async Docs(): Promise<DocsPage> {
         await this.Click("//a[text()='Docs']");
         let page = await this.GetPage();
         await page.waitForLoadState('networkidle');
 
-        return new ApiPage(page);
+        return new DocsPage(page);
     }
 }
