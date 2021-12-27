@@ -15,15 +15,18 @@ test('basic test', async ({ context }) => {
 
 test('playwright base test', async ({ context }) => {
 
+  // arrange
   let page = await context.newPage();
   await page.goto('https://playwright.dev/');
 
+  // act
   let menu = await page.waitForSelector('//nav');
   let docs = await menu.waitForSelector("//a[text()='Docs']")
   await docs.click();
   
   await page.waitForLoadState('networkidle')
 
+  // assert
   await expect(page).toHaveTitle('Getting started | Playwright');
   
 });
