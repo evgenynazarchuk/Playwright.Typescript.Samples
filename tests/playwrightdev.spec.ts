@@ -12,10 +12,10 @@ test('docs menu title', async ({ context }) => {
     
     await expect(docs.page).toHaveTitle('Getting started | Playwright')
     
-  });
+});
 
 
-  test('api menu title', async ({ context }) => {
+test('api menu title', async ({ context }) => {
     
     let page = await context.newPage();
     await page.goto('https://playwright.dev/');
@@ -26,4 +26,4 @@ test('docs menu title', async ({ context }) => {
 
     await expect(api.page).toHaveTitle('Playwright Library | Playwright')
     
-  });
+});
