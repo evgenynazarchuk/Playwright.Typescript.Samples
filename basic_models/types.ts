@@ -22,30 +22,44 @@
  * SOFTWARE.
  */
 
-import { Page } from '@playwright/test';
-import { ClickOptions, DblClickOptions, TypeOptions, FillOptions } from './types'
-
-export class PageModel {
-
-    readonly page: Page;
-
-    constructor(page: Page) {
-        this.page = page;
-    }
-
-    async click(selector: string, options?: ClickOptions) {
-        await this.page.click(selector, options);
-    }
-
-    async dblclick(selector: string, options?: DblClickOptions) {
-        await this.page.dblclick(selector, options);
-    }
-
-    async type(selector: string, text: string, options?: TypeOptions) {
-        await this.page.type(selector, text, options);
-    }
-
-    async fill(selector: string, text: string, options?: FillOptions) {
-        await this.page.fill(selector, text, options);
-    }
+export type ClickOptions = {
+    button?: "left" | "right" | "middle";
+    clickCount?: number;
+    delay?: number;
+    force?: boolean;
+    modifiers?: Array<"Alt" | "Control" | "Meta" | "Shift">;
+    noWaitAfter?: boolean;
+    position?: {
+        x: number;
+        y: number;
+    };
+    timeout?: number;
+    trial?: boolean;
 }
+
+export type DblClickOptions = {
+    button?: "left"|"right"|"middle";
+    delay?: number;
+    force?: boolean;
+    modifiers?: Array<"Alt"|"Control"|"Meta"|"Shift">;
+    noWaitAfter?: boolean;
+    position?: {
+      x: number;
+
+      y: number;
+    };
+    timeout?: number;
+    trial?: boolean;
+}
+
+export type TypeOptions = {
+    delay?: number;
+    noWaitAfter?: boolean;
+    timeout?: number;
+}
+
+export type FillOptions = {
+    force?: boolean;
+    noWaitAfter?: boolean;
+    timeout?: number;
+  }
