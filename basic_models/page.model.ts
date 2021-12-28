@@ -33,19 +33,19 @@ export class PageModel {
         this.page = page;
     }
 
-    async click(selector: string, options?: ClickOptions) {
+    protected async click(selector: string, options?: ClickOptions) {
         await this.page.click(selector, options);
     }
 
-    async dblclick(selector: string, options?: DblClickOptions) {
+    protected async dblclick(selector: string, options?: DblClickOptions) {
         await this.page.dblclick(selector, options);
     }
 
-    async type(selector: string, text: string, options?: TypeOptions) {
+    protected async type(selector: string, text: string, options?: TypeOptions) {
         await this.page.type(selector, text, options);
     }
 
-    async fill(selector: string, text: string, options?: FillOptions) {
+    protected async fill(selector: string, text: string, options?: FillOptions) {
         await this.page.fill(selector, text, options);
     }
 }

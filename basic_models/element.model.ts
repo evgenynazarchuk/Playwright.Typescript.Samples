@@ -33,13 +33,13 @@ export class ElementModel {
         this.element = element;
     }
 
-    async getPage() {
+    protected async getPage() {
         let ownerFrame = await this.element.ownerFrame();
         let page = ownerFrame.page()
         return page;
     }
 
-    async click(selector?: string, options?: ClickOptions) {
+    protected async click(selector?: string, options?: ClickOptions) {
         if(selector == null) {
             await this.element.click(options);
         }
@@ -49,7 +49,7 @@ export class ElementModel {
         }
     }
 
-    async dblclick(selector?: string, options?: DblClickOptions) {
+    protected async dblclick(selector?: string, options?: DblClickOptions) {
         if(selector == null) {
             await this.element.dblclick(options);
         }
@@ -59,7 +59,7 @@ export class ElementModel {
         }
     }
 
-    async type(text: string, selector?: string, options?: TypeOptions) {
+    protected async type(text: string, selector?: string, options?: TypeOptions) {
         if(selector == null) {
             await this.element.type(text, options);
         }
@@ -69,7 +69,7 @@ export class ElementModel {
         }
     }
 
-    async fill(text: string, selector?: string, options?: FillOptions) {
+    protected async fill(text: string, selector?: string, options?: FillOptions) {
         if(selector == null) {
             await this.element.fill(text, options);
         }
