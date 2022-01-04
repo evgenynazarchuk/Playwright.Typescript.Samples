@@ -24,9 +24,9 @@
 
 import { Page } from '@playwright/test';
 
-export class PageModel {
+export abstract class PageModel {
 
-    readonly page: Page;
+    public readonly page: Page;
 
     constructor(page: Page) {
         this.page = page;

@@ -23,18 +23,13 @@
  */
 
 import { Page } from '@playwright/test';
-import { PageModel } from '../../basic_models/page.model'
-import { Menu } from '../blocks/menu'
+import { Menu } from '../blocks/menu';
+import { MenuPage } from '../menu.page';
 
-export class MainPage extends PageModel {
+export class MainPage extends MenuPage {
 
     constructor(page: Page) {
         super(page);
-    }
-
-    async Menu(): Promise<Menu> {
-        let element = await this.page.waitForSelector('//nav')
-        return new Menu(element);
     }
 
 }

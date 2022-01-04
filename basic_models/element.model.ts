@@ -25,7 +25,7 @@
 import { ElementHandle } from '@playwright/test';
 import { ClickOptions, DblClickOptions, TypeOptions, FillOptions } from './types'
 
-export class ElementModel {
+export abstract class ElementModel {
 
     readonly element: ElementHandle;
 

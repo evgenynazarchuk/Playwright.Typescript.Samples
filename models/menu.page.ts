@@ -22,30 +22,19 @@
  * SOFTWARE.
  */
 
-import { ElementHandle, expect, Locator, Page } from '@playwright/test';
-import { ElementModel } from '../../basic_models/element.model'
-import { DocsPage } from '../pages/docs.page';
-import { ApiPage } from '../pages/api.page';
+import { Page } from '@playwright/test';
+import { PageModel } from '../basic_models/page.model'
+import { Menu } from './blocks/menu'
 
-export class Menu extends ElementModel {
+export abstract class MenuPage extends PageModel {
 
-    constructor(element: ElementHandle) {
-        super(element);
+    constructor(page: Page) {
+        super(page);
     }
 
-    async Api(): Promise<ApiPage> {
-        await this.click("//a[text()='API']");
-        let page = await this.getPage();
-        await page.waitForLoadState('networkidle');
-
-        return new ApiPage(page);
+    public async Menu(): Promise<Menu> {
+        let element = await this.page.waitForSelector('//nav')
+        return new Menu(element);
     }
 
-    async Docs(): Promise<DocsPage> {
-        await this.click("//a[text()='Docs']");
-        let page = await this.getPage();
-        await page.waitForLoadState('networkidle');
-
-        return new DocsPage(page);
-    }
 }
