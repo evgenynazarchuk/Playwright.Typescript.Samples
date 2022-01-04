@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { ElementHandle, Page } from '@playwright/test';
+import { ElementHandle } from '@playwright/test';
 import { ClickOptions, DblClickOptions, TypeOptions, FillOptions } from './types'
 
 export class ElementModel {

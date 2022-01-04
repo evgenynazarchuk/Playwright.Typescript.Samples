@@ -23,7 +23,6 @@
  */
 
 import { Page } from '@playwright/test';
-import { ClickOptions, DblClickOptions, TypeOptions, FillOptions } from './types'
 
 export class PageModel {
 
@@ -31,21 +30,5 @@ export class PageModel {
 
     constructor(page: Page) {
         this.page = page;
-    }
-
-    protected async click(selector: string, options?: ClickOptions) {
-        await this.page.click(selector, options);
-    }
-
-    protected async dblclick(selector: string, options?: DblClickOptions) {
-        await this.page.dblclick(selector, options);
-    }
-
-    protected async type(selector: string, text: string, options?: TypeOptions) {
-        await this.page.type(selector, text, options);
-    }
-
-    protected async fill(selector: string, text: string, options?: FillOptions) {
-        await this.page.fill(selector, text, options);
     }
 }

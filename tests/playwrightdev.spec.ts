@@ -25,7 +25,7 @@
 import { test, expect } from '@playwright/test';
 import { MainPage } from '../models/pages/main.page';
 
-test('given menu then click to docs then title', async ({ context }) => {
+test('given menu when click to docs then title', async ({ context }) => {
     // arrange
     let page = await context.newPage();
     await page.goto('https://playwright.dev/');
@@ -42,7 +42,7 @@ test('given menu then click to docs then title', async ({ context }) => {
 });
 
 
-test('given menu then click to api then title', async ({ context }) => {
+test('given menu when click to api then title', async ({ context }) => {
     // arrange
     let page = await context.newPage();
     await page.goto('https://playwright.dev/');
